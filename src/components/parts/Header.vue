@@ -9,14 +9,19 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="#">
-        <img alt="Brand" src="../assets/brandImage.png" style="height: 20px;">
+        <img alt="Brand" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS34IRjFR2cc8yggzFai38LMPYMTEZU8l7RpmjL496zqIwD1diJsBolTQ" style="height: 30px;">
       </a>
     </div>
 
     <div class="collapse navbar-collapse" id="navbarEexample2">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">図書を管理する</a></li>
-        <li><a href="#">システム管理</a></li>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">システム管理<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">ユーザ管理</a></li>
+            <li ><a href="#">図書管理</a></li>
+          </ul>
+        </li>
       </ul>
     </div>
   </div>

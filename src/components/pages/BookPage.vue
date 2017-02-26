@@ -1,5 +1,5 @@
 <template>
-  <div class="bookPage">
+  <div class="bookPage container">
     <ranking></ranking>
     <book-list></book-list>
     <advertisement></advertisement>
@@ -8,9 +8,9 @@
 
 
 <script>
-import BookList from '@/components/BookList'
-import Advertisement from '@/components/Advertisement'
-import Ranking from '@/components/Ranking'
+import BookList from '@/components/parts/BookList'
+import Advertisement from '@/components/parts/Advertisement'
+import Ranking from '@/components/parts/Ranking'
 
 export default {
   name: 'bookPage',

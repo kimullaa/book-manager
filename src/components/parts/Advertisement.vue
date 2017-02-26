@@ -1,5 +1,5 @@
 <template>
-<div class="jumbotron advertisement container">
+<div class="jumbotron advertisement">
   <p>{{ text }}</p>
   <img v-bind:src="imageUrl"/>
 </div>

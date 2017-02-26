@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import BookPage from '@/components/BookPage'
+import BookPage from '@/components/pages/BookPage'
 
 Vue.use(Router)
 

@@ -1,7 +1,8 @@
 <template>
-<div class="bookList container">
+<div class="bookList">
+  <h1>書籍一覧</h1>
   <table class="table table-striped">
-    <thead> 
+    <thead>
       <tr>
         <th>isbn</th>
         <th>title</th>
