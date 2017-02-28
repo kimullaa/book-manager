@@ -1,7 +1,7 @@
 <template>
 
 <div class="inputBook">
-  <h1>変更する<span v-on:click="cancel" class="glyphicon right glyphicon-remove"></span></h1>
+  <h1>変更する<span v-on:click="$emit('cancel')" class="glyphicon right glyphicon-remove"></span></h1>
 
   <form class="form-horizontal row">
     <div class="form-group">
@@ -46,35 +46,33 @@ export default {
       change: {}
     }
   },
-  methods: {
-    cancel: function () {
-      for (var x in this.book) {
-        console.log(x)
-      }
-      for (var y in this.origin) {
-        console.log(y)
-      }
-
-      if (this.change.isbn !== this.book.isbn ||
-          this.change.title !== this.book.title ||
-          this.change.publisher !== this.book.publisher ||
-          this.change.author !== this.book.author) {
-        console.log('hello')
-      } else {
-        this.$emit('canceled')
-      }
-    }
-  },
   updated: function () {
-    // for (var x in this.book) {
-    //   console.log(x)
-    // }
-    // this.change = Object.assign({}, this.book)
+    this.change = Object.assign({}, this.book)
+    for (const x in this.book) {
+      console.log(x)
+    }
+    for (const x in this.change) {
+      console.log(x)
+    }
   }
 }
 </script>
 
 <style scoped>
+.inputBook {
+  animation: fadeIn 0.3s ease 0s 1 normal;
+  -webkit-animation: fadeIn 0.3s ease 0s 1 normal;
+}
+
+@keyframes fadeIn {
+    0% {opacity: 0}
+    100% {opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+    0% {opacity: 0}
+    100% {opacity: 1}
+}
 
 h1 {
   font-size: large;

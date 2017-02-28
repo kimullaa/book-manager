@@ -2,7 +2,7 @@
   <div class="bookPage container">
     <ranking></ranking>
     <book-list v-on:selected="showInputBook($event)"></book-list>
-    <input-book v-bind:book="book" v-show="isActive"></input-book>
+    <input-book v-on:cancel="isActive =false" v-bind:book="book" v-show="isActive"></input-book>
     <advertisement></advertisement>
   </div>
 </template>
