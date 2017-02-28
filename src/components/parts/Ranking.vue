@@ -7,9 +7,9 @@
     </a>
     <div v-for="item in list" v-bind:item="item" class="col-xs-6 col-md-3">
       <h2>{{item.ranking}}位</h2>
-      <a href="#" class="thumbnail">
+      <router-link :to="item.isbn" class="thumbnail">
         <img v-bind:src="item.link">
-      </a>
+      </router-link>
       <p>{{item.title}}</p>
     </div>
     <a href="#" class="carousel right">
@@ -27,10 +27,10 @@ export default {
   data () {
     return {
       list: [
-       {link: 'http://chigai-allguide.com/wp-content/uploads/2340786913.jpg', ranking: 1, title: 'ふくろうの生態'},
-        {link: 'http://chigai-allguide.com/wp-content/uploads/2340786913.jpg', ranking: 2, title: 'ふくろうの生態 その２'},
-        {link: 'http://chigai-allguide.com/wp-content/uploads/2340786913.jpg', ranking: 3, title: 'ふくろうの生態 その３'},
-        {link: 'http://chigai-allguide.com/wp-content/uploads/2340786913.jpg', ranking: 4, title: 'ふくろうの生態 その４'}
+       {link: 'http://chigai-allguide.com/wp-content/uploads/2340786913.jpg', ranking: 1, title: 'ふくろうの生態', isbn: 'isbn1'},
+        {link: 'http://chigai-allguide.com/wp-content/uploads/2340786913.jpg', ranking: 2, title: 'ふくろうの生態 その２', isbn: 'isbn2'},
+        {link: 'http://chigai-allguide.com/wp-content/uploads/2340786913.jpg', ranking: 3, title: 'ふくろうの生態 その３', isbn: 'isbn3'},
+        {link: 'http://chigai-allguide.com/wp-content/uploads/2340786913.jpg', ranking: 4, title: 'ふくろうの生態 その４', isbn: 'isbn4'}
       ]
     }
   }

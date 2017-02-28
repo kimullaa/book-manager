@@ -13,6 +13,7 @@ export default {
     return {
       text: 'awesome javascript framework',
       imageUrl: 'https://jp.vuejs.org/images/logo.png'
+      // imageUrl: './../../assets/logo.png'
     }
   }
 }

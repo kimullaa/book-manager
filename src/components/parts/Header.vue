@@ -8,9 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">
-        <img alt="Brand" src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS34IRjFR2cc8yggzFai38LMPYMTEZU8l7RpmjL496zqIwD1diJsBolTQ" style="height: 30px;">
-      </a>
+      <a class="navbar-brand" href="#">Book Manager</a>
     </div>
 
     <div class="collapse navbar-collapse" id="navbarEexample2">
