@@ -24,21 +24,6 @@ export default {
 </script>
 
 <style scoped>
-.bookHistory {
-  animation: fadeIn 0.3s ease 0s 1 normal;
-  -webkit-animation: fadeIn 0.3s ease 0s 1 normal;
-}
-
-@keyframes fadeIn {
-    0% {opacity: 0}
-    100% {opacity: 1}
-}
-
-@-webkit-keyframes fadeIn {
-    0% {opacity: 0}
-    100% {opacity: 1}
-}
-
 h1 {
   font-size: large;
 }

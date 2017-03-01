@@ -1,34 +1,27 @@
 <template>
-<div class="bookList">
+<div class="rentalList">
 
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>isbn</th>
         <th>title</th>
-        <th>author</th>
-        <th>publisher</th>
-        <th>貸与可否</th>
+        <th>借りてる人</th>
+        <th>レンタル開始期間</th>
       </tr>
     </thead>
     <tbody>
-      <tr v-for="book in list" v-bind:book="book" v-on:click="showHistory(book)">
+      <tr v-for="book in list" v-bind:book="book">
         <td>{{ book.isbn }}</td>
         <td>{{ book.title }}</td>
         <td>{{ book.author }}</td>
-        <td>{{ book.publisher }}</td>
-        <td>{{ book.remaining === 0 ? 'ng' : 'ok' }} </td>
       </tr>
     </tbody>
   </table>
-  <transition name="fade">
-  <book-history key="selectedIsbn" v-bind:isbn="selectedIsbn" v-if="selectedIsbn !== ''"></book-history>
-  </transition>
+
 </div>
 </template>
 
 <script>
-import BookHistory from '@/components/parts/BookHistory'
 
 export default {
   name: 'bookList',
@@ -40,25 +33,13 @@ export default {
       {isbn: 'isbn3', title: 'title3', publisher: 'publisher3', author: 'author3', remaining: 0},
       {isbn: 'isbn4', title: 'title4', publisher: 'publisher4', author: 'author4', remaining: 2},
       {isbn: 'isbn5', title: 'title5', publisher: 'publisher5', author: 'author5', remaining: 2}
-      ],
-      selectedIsbn: ''
+      ]
     }
-  },
-  methods: {
-    showHistory: function (book) {
-      this.selectedIsbn = book.isbn
-    }
-  },
-  components: {BookHistory}
+  }
 }
 </script>
 
 
 <style scoped>
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active in <2.1.8 */ {
-  opacity: 0
-}
+
 </style>

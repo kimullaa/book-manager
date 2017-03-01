@@ -1,15 +1,18 @@
 <template>
   <div class="bookPage container">
     <ranking></ranking>
-    <book-list v-on:selected="book = $event"></book-list>
-    <book-history v-bind:isbn="book.isbn" v-show="Object.keys(book).length !== 0"></book-history>
+    <ul class="nav nav-tabs">
+      <li role="presentation" v-bind:class="{active: ($route.path === '/booklist')}"><router-link to="booklist">図書一覧</router-link></li>
+      <li role="presentation" v-bind:class="{active: $route.path === '/rentallist'}"><router-link to="rentallist">貸し出し状況</router-link></li>
+    </ul>
+    <router-view></router-view>
     <advertisement></advertisement>
   </div>
 </template>
 
 <script>
 import BookList from '@/components/parts/BookList'
-import BookHistory from '@/components/parts/BookHistory'
+import RentalList from '@/components/parts/RentalList'
 import Advertisement from '@/components/parts/Advertisement'
 import Ranking from '@/components/parts/Ranking'
 
@@ -17,9 +20,8 @@ export default {
   name: 'bookPage',
   data () {
     return {
-      book: {}
     }
   },
-  components: {BookList, Advertisement, Ranking, BookHistory}
+  components: {BookList, Advertisement, Ranking, RentalList}
 }
 </script>
