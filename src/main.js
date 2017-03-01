@@ -5,11 +5,14 @@ import App from './App'
 import router from './router'
 import 'jquery'
 import 'bootstrap-loader'
+import axios from 'axios'
 
 /* eslint-disable no-new */
+Vue.prototype.$http = axios
 new Vue({
   el: '#app',
   router,
   template: '<App/>',
   components: { App }
 })
+

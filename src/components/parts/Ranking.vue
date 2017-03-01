@@ -1,8 +1,9 @@
 <template>
 <div class="ranking">
   <h1>人気ランキング</h1>
+  <span v-show="isLoading" class="glyphicon glyphicon-refresh"></span>
   <div class="row">
-    <a href="#" class="carousel left">
+    <a v-on:click="decrement" class="carousel left">
       <span class="glyphicon glyphicon-chevron-left"/>
     </a>
     <div v-for="item in list" v-bind:item="item" class="col-xs-6 col-md-3">
@@ -12,32 +13,65 @@
       </router-link>
       <p>{{item.title}}</p>
     </div>
-    <a href="#" class="carousel right">
+    <a v-on:click="increment" class="carousel right">
       <span class="glyphicon glyphicon-chevron-right"/>
     </a>
   </div>
 </div>
 </template>
 
-
 <script>
-
 export default {
   name: 'ranking',
   data () {
     return {
-      list: [
-       {link: 'http://chigai-allguide.com/wp-content/uploads/2340786913.jpg', ranking: 1, title: 'ふくろうの生態', isbn: 'isbn1'},
-        {link: 'http://chigai-allguide.com/wp-content/uploads/2340786913.jpg', ranking: 2, title: 'ふくろうの生態 その２', isbn: 'isbn2'},
-        {link: 'http://chigai-allguide.com/wp-content/uploads/2340786913.jpg', ranking: 3, title: 'ふくろうの生態 その３', isbn: 'isbn3'},
-        {link: 'http://chigai-allguide.com/wp-content/uploads/2340786913.jpg', ranking: 4, title: 'ふくろうの生態 その４', isbn: 'isbn4'}
-      ]
+      list: [],
+      page: 1,
+      isLoading: false
     }
+  },
+  methods: {
+    increment: function () {
+      if (this.isLoading) {
+        return
+      }
+      this.page++
+      this.fetch()
+    },
+    decrement: function () {
+      if (this.isLoading) {
+        return
+      }
+      if (this.page > 1) {
+        this.page--
+        this.fetch()
+      }
+    },
+    fetch: function () {
+      const self = this
+      self.isLoading = true
+      self.$http.get(`http://10.133.71.204:3000/ranking?_page=${self.page}&_limit=4`)
+      .then(function (response) {
+        if (response.data.length === 0) {
+          self.page--
+        } else {
+          self.list = response.data
+        }
+      }).then(function () {
+        self.isLoading = false
+      })
+    }
+  },
+  created: function () {
+    this.fetch()
   }
 }
 </script>
 
 <style scoped>
+h1 {
+  display: inline
+}
 h2 {
   font-size:large;
 }

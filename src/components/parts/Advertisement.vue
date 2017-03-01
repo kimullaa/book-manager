@@ -1,7 +1,7 @@
 <template>
 <div class="jumbotron advertisement">
-  <p>{{ text }}</p>
-  <img v-bind:src="imageUrl"/>
+  <p>{{ advertisement.text }}</p>
+  <img v-bind:src="advertisement.imageUrl"/>
 </div>
 
 </template>
@@ -11,10 +11,15 @@ export default {
   name: 'advertisement',
   data () {
     return {
-      text: 'awesome javascript framework',
-      imageUrl: 'https://jp.vuejs.org/images/logo.png'
-      // imageUrl: './../../assets/logo.png'
+      advertisement: {}
     }
+  },
+  created: function () {
+    let self = this
+    this.$http.get('http://10.133.71.204:3000/advertisement')
+      .then(function (response) {
+        self.advertisement = response.data
+      })
   }
 }
 </script>

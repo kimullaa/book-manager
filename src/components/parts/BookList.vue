@@ -34,13 +34,7 @@ export default {
   name: 'bookList',
   data () {
     return {
-      list: [
-      {isbn: 'isbn1', title: 'title1', publisher: 'publisher1', author: 'author1', remaining: 1},
-      {isbn: 'isbn2', title: 'title2', publisher: 'publisher2', author: 'author2', remaining: 1},
-      {isbn: 'isbn3', title: 'title3', publisher: 'publisher3', author: 'author3', remaining: 0},
-      {isbn: 'isbn4', title: 'title4', publisher: 'publisher4', author: 'author4', remaining: 2},
-      {isbn: 'isbn5', title: 'title5', publisher: 'publisher5', author: 'author5', remaining: 2}
-      ],
+      list: [],
       selectedIsbn: ''
     }
   },
@@ -49,7 +43,17 @@ export default {
       this.selectedIsbn = book.isbn
     }
   },
-  components: {BookHistory}
+  components: {BookHistory},
+  created: function () {
+    let self = this
+    this.$http.get('http://10.133.71.204:3000/books')
+      .then(function (response) {
+        for (let book of response.data) {
+          self.list.push(book)
+        }
+        console.log(self.list)
+      })
+  }
 }
 </script>
 
