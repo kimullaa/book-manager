@@ -16,7 +16,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">システム管理<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">ユーザ管理</a></li>
+            <li><router-link to="/system/user" >ユーザ管理</router-link></li>
             <li ><a href="#">図書管理</a></li>
           </ul>
         </li>

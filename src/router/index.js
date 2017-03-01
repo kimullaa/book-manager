@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import BookPage from '@/components/pages/BookPage'
 import BookList from '@/components/parts/BookList'
 import RentalList from '@/components/parts/RentalList'
+import UserManagementPage from '@/components/pages/UserManagementPage'
 
 Vue.use(Router)
 
@@ -11,6 +12,11 @@ export default new Router({
     {
       path: '/',
       redirect: '/book/booklist'
+    },
+    {
+      path: '/system/user',
+      name: UserManagementPage,
+      component: UserManagementPage
     },
     {
       path: '/book',
