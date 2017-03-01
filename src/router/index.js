@@ -10,8 +10,11 @@ export default new Router({
   routes: [
     {
       path: '/',
+      redirect: '/book/booklist'
+    },
+    {
+      path: '/book',
       name: 'BookPage',
-      redirect: '/booklist',
       component: BookPage,
       children: [
         {
