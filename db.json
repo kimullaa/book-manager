@@ -4,13 +4,61 @@
     "isbn": "isbn1",
     "title": "title1",
     "author": "author1",
-    "publisher": "publisher1"
+    "publisher": "publisher1",
+    "remaining": 0
   },
   {
-    "isbn": "isbn1",
-    "title": "title1",
-    "author": "author1",
-    "publisher": "publisher1"
+    "isbn": "isbn2",
+    "title": "title2",
+    "author": "author2",
+    "publisher": "publisher2",
+    "remaining": 1
+  },
+  {
+    "isbn": "isbn3",
+    "title": "title3",
+    "author": "author3",
+    "publisher": "publisher3",
+    "remaining": 0
+  },
+  {
+    "isbn": "isbn4",
+    "title": "title4",
+    "author": "author4",
+    "publisher": "publisher4",
+    "remaining": 1
   }
-  ]
+  ],
+    "ranking":[
+    {
+      "link": "http://chigai-allguide.com/wp-content/uploads/2340786913.jpg",
+      "ranking": 1,
+      "title": "ふくろうの生態",
+      "isbn": "isbn1"
+    },
+    {
+      "link": "http://chigai-allguide.com/wp-content/uploads/2340786913.jpg",
+      "ranking": 2,
+      "title": "ふくろうの生態 その２",
+      "isbn": "isbn2"
+    },
+    {
+      "link": "http://chigai-allguide.com/wp-content/uploads/2340786913.jpg",
+      "ranking": 3,
+      "title": "ふくろうの生態 その３",
+      "isbn": "isbn3"
+    },
+    {
+      "link": "http://chigai-allguide.com/wp-content/uploads/2340786913.jpg",
+      "ranking": 4,
+      "title": "ふくろうの生態 その４",
+      "isbn": "isbn4"
+    }
+  ],
+    "advertisement":
+    {
+      "text": "awesome javascript framework",
+      "imageUrl": "https://jp.vuejs.org/images/logo.png"
+    }
+
 }
