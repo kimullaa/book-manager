@@ -7,13 +7,17 @@
         <th>title</th>
         <th>借りてる人</th>
         <th>レンタル開始期間</th>
+        <th>日数</th>
+        <th>催促する</th>
       </tr>
     </thead>
     <tbody>
-      <tr v-for="book in list" v-bind:book="book">
-        <td>{{ book.isbn }}</td>
-        <td>{{ book.title }}</td>
-        <td>{{ book.author }}</td>
+      <tr v-for="record in list" v-bind:record="record">
+        <td>{{ record.title }}</td>
+        <td>{{ record.username }}</td>
+        <td>{{ record.start }}</td>
+        <td>{{ passed }}日借りています</td>
+        <td><button type="button" class="btn">催促</button> </td>
       </tr>
     </tbody>
   </table>
@@ -27,13 +31,19 @@ export default {
   name: 'bookList',
   data () {
     return {
-      list: [
-      {isbn: 'isbn1', title: 'title1', publisher: 'publisher1', author: 'author1', remaining: 1},
-      {isbn: 'isbn2', title: 'title2', publisher: 'publisher2', author: 'author2', remaining: 1},
-      {isbn: 'isbn3', title: 'title3', publisher: 'publisher3', author: 'author3', remaining: 0},
-      {isbn: 'isbn4', title: 'title4', publisher: 'publisher4', author: 'author4', remaining: 2},
-      {isbn: 'isbn5', title: 'title5', publisher: 'publisher5', author: 'author5', remaining: 2}
-      ]
+      list: []
+    }
+  },
+  created: function () {
+    let self = this
+    this.$http.get('http://10.133.71.204:3000/rentals')
+      .then(function (response) {
+        self.list = response.data
+      })
+  },
+  computed: {
+    passed: function () {
+      return '1'
     }
   }
 }
